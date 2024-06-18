@@ -1,0 +1,94 @@
+{% extends 'User-Page/baseLayout.html' %}
+{% load static %}
+{% block title %}
+Movie-Home
+{% endblock title %}
+{% block content  %}
+<main class="main-content">
+    <div class="container">
+        <div class="page">
+            <div class="breadcrumbs">
+                <a href="/">Home</a>
+                <span>Movie Review</span>
+            </div>
+
+            <div class="filters">
+                
+                {% comment %} <select name="#" id="#" placeholder="Choose Category">
+                    {% for category in categories %}
+                    <option value="#"><a href="/category/{{category.id}}">{{ category.name }}</a></option>
+                    {% endfor %}
+                </select> {% endcomment %}
+                {% include "User-Page/Category/category.html" %}
+            </div>
+            
+            <div class="movie-list">
+                {% for m in product %}
+                <div class="movie">
+                   
+                    <figure class="movie-poster"><a href="{% url 'movie:product_detail' m.id %}" className=""><img src="{{m.image.url}}" alt="{{m.website_url}}"></a></figure>
+                    <div class="movie-title"><a href="{{m.website_url}}">{{m.title}}</a></div>
+                    <p>{{m.description}}</p>
+                    
+                </div>
+                {% endfor %}
+                {% comment %} <div class="movie">
+                    <figure class="movie-poster"><img src="dummy/thumb-4.jpg" alt="#"></figure>
+                    <div class="movie-title"><a href="single.html">The adventure of Tintin</a></div>
+                    <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
+                </div>
+                <div class="movie">
+                    <figure class="movie-poster"><img src="dummy/thumb-5.jpg" alt="#"></figure>
+                    <div class="movie-title"><a href="single.html">Hobbit</a></div>
+                    <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
+                </div>
+                <div class="movie">
+                    <figure class="movie-poster"><img src="dummy/thumb-6.jpg" alt="#"></figure>
+                    <div class="movie-title"><a href="single.html">Exists</a></div>
+                    <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
+                </div>
+                <div class="movie">
+                    <figure class="movie-poster"><img src="dummy/thumb-1.jpg" alt="#"></figure>
+                    <div class="movie-title"><a href="single.html">Drive hard</a></div>
+                    <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
+                </div>
+                <div class="movie">
+                    <figure class="movie-poster"><img src="dummy/thumb-2.jpg" alt="#"></figure>
+                    <div class="movie-title"><a href="single.html">Robocop</a></div>
+                    <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
+                </div>
+                <div class="movie">
+                    <figure class="movie-poster"><img src="dummy/thumb-7.jpg" alt="#"></figure>
+                    <div class="movie-title"><a href="single.html">Life of Pi</a></div>
+                    <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
+                </div>
+                <div class="movie">
+                    <figure class="movie-poster"><img src="dummy/thumb-8.jpg" alt="#"></figure>
+                    <div class="movie-title"><a href="single.html">The Colony</a></div>
+                    <p>Sed ut perspiciatis unde omnis iste natus error voluptatem doloremque.</p>
+                </div> {% endcomment %}
+            </div> <!-- .movie-list -->
+
+            <div class="pagination">
+                {% if product.has_previous %}
+                <a href="?page={{product.previous_page_number}}" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+                {% endif %}
+                {% for num in product.paginator.page_range %}
+                {% if num == product.number %}
+                <span class="page-number current">{{num}}</span>
+                {% else %}
+                <a href="?page={{num}}" class="page-number">{{num}}</a>
+                {% endif %}
+                {% endfor %}
+                
+                <a href="?page={{product.paginator.num_pages}}" class="page-number">Last</a>
+                {% if page.has_next %}
+                <a href="#" class="page-number">4</a>
+                <a href="#" class="page-number">5</a>
+                <a href="?page={{product.next_page_number}}" class="page-number next"><i class="fa fa-angle-right"></i></a>
+                {% endif %}
+            </div>
+        </div>
+    </div> <!-- .container -->
+</main>
+{% endblock %}

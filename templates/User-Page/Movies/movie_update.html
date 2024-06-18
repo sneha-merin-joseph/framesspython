@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Product</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'products/styles.css' %}">
+</head>
+<body>
+    <h1>Update Product</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Product</button>
+    </form>
+    {% comment %} <a href="{% url 'movie:product_detail' pk=movie.pk %}">Back to Product</a> {% endcomment %}
+</body>
+</html>

@@ -1,0 +1,142 @@
+{% extends 'User-Page/baseLayout.html' %}
+{% load static %}
+{% block title %}
+Movie-Home
+{% endblock title %}
+{% block content  %}
+
+
+<div id="site-content">
+    <main class="main-content">
+        <div class="container">
+            <div class="page">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="slider">
+                            <ul class="slides">
+                                <li><a href="#"><img src="{% static 'dummy/11.jpg' %} " alt="11"></a></li>
+<!--                                <li><a href="#"><img src="{% static ' dummy/11.jpg' %}" alt="11"></a></li>-->
+                                <li><a href="#"><img src="{% static 'dummy/11.jpg' %} " alt="11"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-12">
+                                <div class="latest-movie">
+                                    <a href="#"><img src=" {% static 'dummy/22.jpg' %}  " alt="Movie 1"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-12">
+                                <div class="latest-movie">
+                                    <a href="#"><img src=" {% static 'dummy/33.jpg' %} " alt="Movie 2"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- .row -->
+
+                </div>
+                        <h4 class="mb-3">FrameFriend - Movie World</h4>
+                        <p>Your Ultimate Destination for Movie Enthusiasts Dive into the world of cinema like never before with FrameFriends, the premier online hub for movie lovers across the globe. At FrameFriends, we believe that movies are more than just entertainment—they're a way to connect, explore new worlds, and share unforgettable experiences with friends and fellow cinephiles. Whether you're a die-hard film aficionado or just looking for your next movie night pick, FrameFriends offers a vibrant community and a rich selection of features designed to enrich your cinematic journey. Join FrameFriends today and be part of a growing community where movie lovers unite, share, and discover the magic of cinema together. Whether you're looking to get lost in a story, find recommendations, or just chat about your latest watch, FrameFriends is the place for you. Let's embark on this cinematic adventure together—frame by frame, friend by friend."</p>
+<!--                        class"btn" href=""><i class="fa fa-plus text-primary me-3"></i>Read More</a>-->
+                </div>
+            <div class="filters">
+                
+                {% include "User-Page/Category/category.html" %}
+            </div>
+                <div class="row">
+                    {% for m in product  %}
+                    <div class="col-sm-6 col-md-3">
+                        
+                        <div class="latest-movie">
+                           
+                            <a href="{% url 'movie:product_detail' m.id %}"><img src="{{m.image.url}}" style="height: 400px;" alt="Movie 3"></a>
+                            <h2 class="section-title " style="text-align: center;font-size: medium;padding-top: 9px;">{{m.title}}</h2>
+                            <p style="text-align: center;font-size: medium;padding-top: 9px;">{{m.description}}</p>
+                            
+                        </div>
+                        
+                    </div>
+                    {% endfor %}
+                </div> <!-- .row -->
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2 class="section-title">December premiere</h2>
+                        <p>Your Ultimate Destination for Movie Enthusiasts Dive into the world of cinema like never
+before with FrameFriends, the premier online hub for movie lovers across the globe.</p>
+                        <ul class="movie-schedule">
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                        </ul> <!-- .movie-schedule -->
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="section-title">November premiere</h2>
+                        <p>Your Ultimate Destination for Movie Enthusiasts Dive into the world of cinema like never
+before with FrameFriends, the premier online hub for movie lovers across the globe.</p>
+                        <ul class="movie-schedule">
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                        </ul> <!-- .movie-schedule -->
+                    </div>
+                    <div class="col-md-4">
+                        <h2 class="section-title">October premiere</h2>
+                        <p>Your Ultimate Destination for Movie Enthusiasts Dive into the world of cinema like never
+before with FrameFriends, the premier online hub for movie lovers across the globe.</p>
+                        <ul class="movie-schedule">
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                            <li>
+                                <div class="date">16/12</div>
+                                <h2 class="entry-title"><a href="#">Perspiciatis unde omnis</a></h2>
+                            </li>
+                        </ul> <!-- .movie-schedule -->
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .container -->
+    </main>
+   
+</div>
+<!-- Default snippet for navigation -->
+{% endblock  %}

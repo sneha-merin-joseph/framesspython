@@ -1,0 +1,22 @@
+
+<body>
+    <h1>Add Product</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Product</button>
+
+    </form>
+    <a href="{% url 'movie:product_list' %}">Back to Product List</a>
+    <a href="{% url 'movie:product_list' %}">    .....Delete....</a>
+    <ul>
+        {% for m in movie %}
+            <li>
+                <a href="{% url 'movie:product_detail' pk=m.pk %}">{{ m.title }}</a>
+                <a href="{% url 'movie:product_update' pk=m.pk %}">(Edit)</a>
+                <a href="{% url 'movie:product_delete' pk=m.pk %}">(Delete)</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

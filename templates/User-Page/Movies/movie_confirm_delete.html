@@ -1,0 +1,18 @@
+<!-- In your template directory: User-Page/Movies/movie_confirm_delete.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Movie</title>
+</head>
+<body>
+    <h1>Are you sure you want to delete this movie?</h1>
+    <p>{{ movie.title }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+        {% comment %} <a href="{% url 'movie:product_detail' pk=m.id %}">Cancel</a> {% endcomment %}
+    </form>
+</body>
+</html>
